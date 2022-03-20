@@ -1,8 +1,11 @@
 .topicItem {
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 1rem;
     display: block;
     text-decoration: none;
     color: black;
+    max-width: 60rem;
 }
 
 .topicItem__title {
