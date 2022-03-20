@@ -1,0 +1,29 @@
+.topicItem {
+    margin-bottom: 1rem;
+    display: block;
+    text-decoration: none;
+    color: black;
+}
+
+.topicItem__title {
+    background-color: lightgray;
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
+    padding: 1rem;
+    border: solid lightgray 1px;
+    box-shadow: 2px 0px 5px lightgray;
+}
+
+.topicItem__content {
+    border: solid lightgray 1px;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 2px 5px 5px lightgray;
+}
+
+.topicItem__title h3{
+    margin: 0;
+}
+
+.topicItem__content {
+    padding: 1rem;
+}

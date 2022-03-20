@@ -1,0 +1,20 @@
+:host {
+    margin: 0;
+    padding: 0.5rem;
+    border-bottom: solid 1px lightgray;
+    box-shadow: 0 5px 5px lightgray;
+    width: 100%;
+    position: fixed;
+    z-index: 10;
+    background-color: white;
+}
+
+.forumHeader{
+    display: flex;
+}
+
+.forumHeader__nav {
+    display: flex;
+    flex-direction: row;
+    margin: 0 0.3rem;
+}
