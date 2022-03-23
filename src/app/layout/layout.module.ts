@@ -4,6 +4,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavButtonComponent } from './buttons/nav-button/nav-button.component';
 import { RouterModule } from '@angular/router';
+import { BackNavBarComponent } from './controls/back-nav-bar/back-nav-bar.component';
 
 
 
@@ -11,7 +12,8 @@ import { RouterModule } from '@angular/router';
   declarations: [
     HeaderComponent,
     FooterComponent,
-    NavButtonComponent
+    NavButtonComponent,
+    BackNavBarComponent
   ],
   imports: [
     CommonModule,
@@ -19,7 +21,8 @@ import { RouterModule } from '@angular/router';
   ],
   exports: [
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    BackNavBarComponent
   ]
 })
 export class LayoutModule { }

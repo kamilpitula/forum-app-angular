@@ -5,6 +5,7 @@ import { TopicsRoutingModule } from './topics-routing.module';
 import { TopicItemComponent } from './topic-item/topic-item.component';
 import { TopicPageComponent } from './topic-page/topic-page.component';
 import { TopicsPageComponent } from './topics-page/topics-page.component';
+import { LayoutModule } from '../layout/layout.module';
 
 
 
@@ -17,7 +18,8 @@ import { TopicsPageComponent } from './topics-page/topics-page.component';
   ],
   imports: [
     CommonModule,
-    TopicsRoutingModule
+    LayoutModule,
+    TopicsRoutingModule,
   ],
   exports: [
     TopicsHomeComponent
