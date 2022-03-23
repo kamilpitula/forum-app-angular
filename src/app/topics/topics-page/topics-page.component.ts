@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { TopicItem } from '../model/topic-item';
-import { TopicsService } from '../topics.service';
 
 @Component({
   selector: 'app-topics-page',
@@ -9,13 +7,9 @@ import { TopicsService } from '../topics.service';
 })
 export class TopicsPageComponent implements OnInit {
 
-  public topics : TopicItem[] = [];
-
-  constructor(private topicsService: TopicsService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.topicsService
-      .getTopicItems()
-      .subscribe(items => this.topics = items);
   }
+
 }
