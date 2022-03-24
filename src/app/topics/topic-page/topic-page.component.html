@@ -1,2 +1,10 @@
 <app-back-nav-bar></app-back-nav-bar>
-<p *ngIf="topicId$ | async as topicId">This is {{topicId}}</p>
+<header class="topicPage__header">
+    <div class="topicPage__left">
+        <h3 class="topicPage__title" *ngIf="topicId$ | async as topicId">This is {{topicId}}</h3>
+        <p class="topicPage__description">Description sample</p>
+    </div>
+    <div class="topicPage__right">
+        <app-nav-button name="Add new" route="./add"></app-nav-button>
+    </div>
+</header>

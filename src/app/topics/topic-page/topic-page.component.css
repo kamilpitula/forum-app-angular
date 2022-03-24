@@ -1,0 +1,15 @@
+.topicPage__header {
+    border-bottom: lightgray solid 1px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.3rem 0 0.3rem;
+    max-width: 70rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+}
+
+.topicPage__right {
+    display: flex;
+    align-content: center;
+}

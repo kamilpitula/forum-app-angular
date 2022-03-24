@@ -10,8 +10,7 @@ const routes: Routes = [
     component: TopicsPageComponent,
     children: [
       {
-        path: '',
-        component: TopicsHomeComponent
+        path: '', component: TopicsHomeComponent
       },
       {
         path: ':topicId',
