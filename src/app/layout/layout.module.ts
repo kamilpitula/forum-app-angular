@@ -22,7 +22,8 @@ import { BackNavBarComponent } from './controls/back-nav-bar/back-nav-bar.compon
   exports: [
     HeaderComponent,
     FooterComponent,
-    BackNavBarComponent
+    BackNavBarComponent,
+    NavButtonComponent
   ]
 })
 export class LayoutModule { }
