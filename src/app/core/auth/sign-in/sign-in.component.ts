@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthenticationResult } from '../services/authentication.service';
 import { JwtAuthenticationService } from '../services/jwt-authentication.service';
 
 @Component({
@@ -12,17 +13,20 @@ export class SignInComponent {
   constructor(private authenticationService: JwtAuthenticationService) { }
 
   loginData = new FormGroup({
-    login: new FormControl('', [Validators.email, Validators.required]),
+    login: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required])
   });
 
   onSignIn() {
-    this.authenticationService.logIn()
-      .subscribe(() => this.handleSignInResult())
-    console.warn(this.loginData.value);
+    this.authenticationService
+    .logIn({
+      login: this.loginData.get('login')?.value,
+      password: this.loginData.get('password')?.value
+    })
+    .subscribe(r => this.handleSignInResult(r));
   }
 
-  handleSignInResult() {
-    console.warn('handle sign in');
+  handleSignInResult(result: AuthenticationResult) {
+    console.warn(result);
   }
 }
