@@ -9,13 +9,25 @@
     background-color: white;
 }
 
-.forumHeader{
+.forumHeader {
+    display: flex;
+    justify-content: space-between;
+    max-width: 120rem;
+    margin: auto;
+}
+
+.forumHeader__leftContainer {
     display: flex;
 }
 
 .forumHeader__nav {
     display: flex;
     flex-direction: row;
-    margin: 0 0.3rem;
+    margin: 0 2rem;
+    align-items: center;
+}
+
+.forumHeader__authPanel {
+    display: flex;
     align-items: center;
 }
