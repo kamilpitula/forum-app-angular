@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AuthModule } from './core/auth/auth.module';
 import { LayoutModule } from './layout/layout.module';
 import { TopicsModule } from './topics/topics.module';
 
@@ -14,7 +15,8 @@ import { TopicsModule } from './topics/topics.module';
     BrowserModule,
     AppRoutingModule,
     LayoutModule,
-    TopicsModule
+    TopicsModule,
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
