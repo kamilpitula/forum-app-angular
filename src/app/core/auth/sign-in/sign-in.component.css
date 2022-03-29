@@ -1,0 +1,30 @@
+.signIn__container {
+    border: solid lightgray 1px;
+    border-radius: 10px;
+    box-shadow: 2px 5px 5px lightgray;
+    max-width: 60rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 4rem;
+    padding: 3rem 2rem 3rem 2rem;
+}
+
+.signIn__control {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+}
+
+.signIn__input {
+    margin-top: 0.5rem;
+    height: 3rem;
+    border: solid lightgray 1px;
+    border-radius: 10px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    box-shadow: 1px 2px 2px lightgray;
+}
+
+.signIn__label {
+    font-size: large;
+}
