@@ -1,11 +1,12 @@
-<div class="signIn__container">
+<form class="signIn__container" [formGroup]="loginData" (ngSubmit)="onSignIn()">
     <h2>Sign in</h2>
     <div class="signIn__control">
         <label for="login" class="signIn__label">Login: </label>
-        <input type="text" name="login" id="login" class="signIn__input">
+        <input type="text" name="login" id="login" class="signIn__input" formControlName="login">
     </div>
     <div class="signIn__control">
         <label for="password" class="signIn__label">Password: </label>
-        <input type="password" name="password" id="password" class="signIn__input">
+        <input type="password" name="password" id="password" class="signIn__input" formControlName="password">
     </div>
-</div>
+    <button type="submit" class="signIn__button">Sign In</button>
+</form>
