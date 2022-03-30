@@ -1,7 +1,7 @@
 import { Observable } from "rxjs";
 
 export interface AuthenticationService {
-    logIn(loginData: LoginData): Observable<AuthenticationResult>;
+    logIn(loginData: LoginData): Observable<boolean>;
     logOut(): Observable<void>;
     isAuthenticated(): Observable<boolean>;
 }

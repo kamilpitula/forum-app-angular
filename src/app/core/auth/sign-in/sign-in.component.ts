@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AuthenticationResult } from '../services/authentication.service';
 import { JwtAuthenticationService } from '../services/jwt-authentication.service';
 
 @Component({
@@ -19,14 +18,19 @@ export class SignInComponent {
 
   onSignIn() {
     this.authenticationService
-    .logIn({
-      login: this.loginData.get('login')?.value,
-      password: this.loginData.get('password')?.value
-    })
-    .subscribe(r => this.handleSignInResult(r));
+      .logIn({
+        login: this.loginData.get('login')?.value,
+        password: this.loginData.get('password')?.value
+      })
+      .subscribe(r => this.handleSignInResult(r));
   }
 
-  handleSignInResult(result: AuthenticationResult) {
-    console.warn(result);
+  handleSignInResult(result: boolean) {
+    if (result) {
+      console.warn('authentication succeeded');
+    }
+    else {
+      console.warn('authentication failed');
+    }
   }
 }
