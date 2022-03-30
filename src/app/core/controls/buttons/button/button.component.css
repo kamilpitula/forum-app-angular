@@ -1,0 +1,21 @@
+.button {
+    margin: 0.1rem;
+    display: flex;
+    height: 2rem;
+    min-width: 4rem;
+    justify-content: center;
+    align-items: center;
+    padding: 0.8rem;
+    border: lightgray solid 0.1rem;
+    border-radius: 10px;
+    color: black;
+    font-family: inherit;
+    cursor: pointer;
+    background-color: white;
+    font-size: medium;
+}
+
+.button:hover,
+.button:active {
+    background-color: lightgray;
+}

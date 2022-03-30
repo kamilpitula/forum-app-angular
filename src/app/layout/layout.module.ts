@@ -4,6 +4,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { ControlsModule } from '../core/controls/controls.module';
+import { AuthPanelComponent } from './auth-panel/auth-panel.component';
 
 
 
@@ -11,6 +12,7 @@ import { ControlsModule } from '../core/controls/controls.module';
   declarations: [
     HeaderComponent,
     FooterComponent,
+    AuthPanelComponent,
 
   ],
   imports: [

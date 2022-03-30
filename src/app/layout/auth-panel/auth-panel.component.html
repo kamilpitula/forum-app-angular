@@ -1,0 +1,13 @@
+
+<div *ngIf="user then userView else guestView"></div>
+<ng-template #guestView>
+    <nav class="authPanel">
+        <app-nav-button name="Sign in" route="/signIn"></app-nav-button>
+    </nav>
+</ng-template>
+<ng-template #userView>
+    <nav class="authPanel">
+        <app-button text="Sign out" (click)="onSignOut()"></app-button>
+        <span class="authPanel_userData">{{user?.email}}</span>
+    </nav>
+</ng-template>

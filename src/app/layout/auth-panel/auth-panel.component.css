@@ -1,0 +1,16 @@
+.authPanel {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.authPanel_userData {
+    margin-left: 1rem;
+    display: none;
+}
+
+@media (min-width: 600px) {
+    .authPanel_userData {
+        display: inline-block;
+    }
+}
