@@ -9,6 +9,9 @@ import { JwtAuthenticationService } from '../services/jwt-authentication.service
 })
 export class SignInComponent {
 
+  
+  public lastAttemptFailed: boolean = false;
+
   constructor(private authenticationService: JwtAuthenticationService) { }
 
   loginData = new FormGroup({
@@ -28,9 +31,11 @@ export class SignInComponent {
   handleSignInResult(result: boolean) {
     if (result) {
       console.warn('authentication succeeded');
+      this.lastAttemptFailed = false;
     }
     else {
       console.warn('authentication failed');
+      this.lastAttemptFailed = true;
     }
   }
 }

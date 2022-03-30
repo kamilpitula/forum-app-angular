@@ -51,4 +51,5 @@
 
 .signIn__authResult {
     margin-top: 0.8rem;
+    min-height: 2rem;
 }
