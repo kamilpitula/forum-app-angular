@@ -2,15 +2,17 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, of, switchMap, tap, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Store } from '@ngrx/store';
 import { LocalStorageService } from '../../storage/local-storage.service';
 import { AuthenticatedUser, AuthenticationResult, AuthenticationService, LoginData } from './authentication.service';
+import { userLoggedIn, userLoggedOut } from '../state/auth.actions';
 
 @Injectable({
   providedIn: 'root'
 })
 export class JwtAuthenticationService implements AuthenticationService {
 
-  constructor(private storage: LocalStorageService, private http: HttpClient) { }
+  constructor(private storage: LocalStorageService, private http: HttpClient, private store: Store) { }
 
   logIn(loginData: LoginData): Observable<boolean> {
     return this.http
@@ -24,6 +26,7 @@ export class JwtAuthenticationService implements AuthenticationService {
 
   logOut(): Observable<void> {
     return of(this.storage.removeItem('token'), this.storage.removeItem('user'))
+      .pipe(tap(_ => this.store.dispatch(userLoggedOut())))
   }
 
   isAuthenticated(): Observable<boolean> {
@@ -52,7 +55,7 @@ export class JwtAuthenticationService implements AuthenticationService {
       email: authenticationResult.email
     };
 
-    this.storage.setItem('user', JSON.stringify(authenticatedUser));
+    this.store.dispatch(userLoggedIn({ user: authenticatedUser }));
 
     return of(true);
   }

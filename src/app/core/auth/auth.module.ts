@@ -14,7 +14,7 @@ import { LayoutModule } from 'src/app/layout/layout.module';
     CommonModule,
     ReactiveFormsModule,
     HttpClientModule,
-    LayoutModule
+    LayoutModule,
   ],
   exports: [
     SignInComponent
