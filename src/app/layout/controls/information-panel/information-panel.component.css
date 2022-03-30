@@ -1,0 +1,33 @@
+.infoPanel__container {
+    display: flex;
+    align-content: space-between;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 10px;
+    padding: 0.2rem 1rem 0.2rem 1rem;
+    font-weight: bolder;
+}
+
+.infoPanel__icon {
+    margin-right: 1rem;
+    padding-right: 0.5rem;
+    border-right: 1px solid;
+}
+
+.infoPanel__container--error {
+    border-color: #FEB5B5;
+    background-color: #FED0D0;
+    color: #FE493E;
+}
+
+.infoPanel__container--info {
+    border-color: #9BA4FE;
+    background-color: #D0D4FE;
+    color: #3E41FE;
+}
+
+.infoPanel__container--warning {
+    border-color: #FEDF9B;
+    background-color: #F9E8C2;
+    color: #FEA93E;
+}

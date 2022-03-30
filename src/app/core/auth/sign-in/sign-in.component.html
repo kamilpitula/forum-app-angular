@@ -8,5 +8,8 @@
         <label for="password" class="signIn__label">Password: </label>
         <input type="password" name="password" id="password" class="signIn__input" formControlName="password">
     </div>
+    <div class="signIn__authResult">
+        <app-information-panel level="error" text="Invalid username or password"></app-information-panel>
+    </div>
     <button type="submit" class="signIn__button">Sign In</button>
 </form>

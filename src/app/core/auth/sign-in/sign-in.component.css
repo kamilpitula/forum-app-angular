@@ -48,3 +48,7 @@
 .signIn__button:active {
     background-color: lightgray;
 }
+
+.signIn__authResult {
+    margin-top: 0.8rem;
+}

@@ -1,0 +1,9 @@
+<div class="infoPanel__container"
+    [ngClass]="{'infoPanel__container--error': level==='error', 'infoPanel__container--info': level==='info', 'infoPanel__container--warning': level==='warning'}">
+    <div class="infoPanel__icon">
+        <span>!</span>
+    </div>
+    <div class="infoPanel__content">
+        <span>{{text}}</span>
+    </div>
+</div>
