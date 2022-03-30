@@ -6,6 +6,7 @@ import { TopicItemComponent } from './topic-item/topic-item.component';
 import { TopicPageComponent } from './topic-page/topic-page.component';
 import { TopicsPageComponent } from './topics-page/topics-page.component';
 import { LayoutModule } from '../layout/layout.module';
+import { ControlsModule } from '../core/controls/controls.module';
 
 
 
@@ -20,6 +21,7 @@ import { LayoutModule } from '../layout/layout.module';
     CommonModule,
     LayoutModule,
     TopicsRoutingModule,
+    ControlsModule
   ],
   exports: [
     TopicsHomeComponent
