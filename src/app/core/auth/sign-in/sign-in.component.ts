@@ -1,41 +1,34 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { JwtAuthenticationService } from '../services/jwt-authentication.service';
+import { Store } from '@ngrx/store';
+import { userRequestedSignIn } from '../state/auth.actions';
+import { selectSignInResult } from '../state/auth.selectors';
 
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.css']
 })
-export class SignInComponent {
+export class SignInComponent implements OnInit {
 
-  
-  public lastAttemptFailed: boolean = false;
 
-  constructor(private authenticationService: JwtAuthenticationService) { }
+  public lastAttemptFailed!: boolean;
+
+  constructor(private store: Store) { }
 
   loginData = new FormGroup({
     login: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required])
   });
 
-  onSignIn() {
-    this.authenticationService
-      .logIn({
-        login: this.loginData.get('login')?.value,
-        password: this.loginData.get('password')?.value
-      })
-      .subscribe(r => this.handleSignInResult(r));
+  ngOnInit() {
+    this.store.select(selectSignInResult)
+      .subscribe(result => this.lastAttemptFailed = !result);
   }
 
-  handleSignInResult(result: boolean) {
-    if (result) {
-      console.warn('authentication succeeded');
-      this.lastAttemptFailed = false;
-    }
-    else {
-      console.warn('authentication failed');
-      this.lastAttemptFailed = true;
-    }
+  onSignIn() {
+    this.store.dispatch(userRequestedSignIn({
+      loginData: { login: this.loginData.get('login')?.value, password: this.loginData.get('password')?.value }
+    }))
   }
 }
