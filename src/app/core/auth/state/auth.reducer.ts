@@ -1,6 +1,6 @@
 import { createFeature, createReducer, on } from '@ngrx/store';
 import { AuthenticatedUser } from '../services/authentication.service';
-import { userAuthenticationFailed, userAuthenticationSucceeded, userLoggedIn, userLoggedOut } from './auth.actions';
+import { unauthorizedUserRedirected, userAuthenticationFailed, userAuthenticationSucceeded, userLoggedIn, userLoggedOut } from './auth.actions';
 
 const initialState: AuthenticatedUser = {
     userId: 0,
@@ -14,13 +14,22 @@ export const authReducer = createReducer(
     on(userLoggedOut, (state) => initialState)
 );
 
-const signInInitialState: boolean = true;
+export interface SignInState {
+    authenticationSucceeded: boolean;
+    redirectTo: string;
+}
+
+const signInInitialState: SignInState = {
+    authenticationSucceeded: true,
+    redirectTo: ''
+};
 
 export const signInFeature = createFeature({
     name: 'signIn',
     reducer: createReducer(
         signInInitialState,
-        on(userAuthenticationSucceeded, (state) => true),
-        on(userAuthenticationFailed, (state) => false)
+        on(userAuthenticationSucceeded, (state) => ({ ...state, authenticationSucceeded: true })),
+        on(userAuthenticationFailed, (state) => ({ ...state, authenticationSucceeded: false })),
+        on(unauthorizedUserRedirected, (state, action) => ({ ...state, redirectTo: action.redirectedFrom })),
     )
 });

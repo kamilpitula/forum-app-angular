@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { Store } from '@ngrx/store';
 import { exhaustMap, map } from 'rxjs';
 import { JwtAuthenticationService } from '../services/jwt-authentication.service';
 import { userAuthenticationFailed, userAuthenticationSucceeded, userRequestedSignIn } from './auth.actions';

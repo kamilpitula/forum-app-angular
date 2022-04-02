@@ -15,6 +15,11 @@ export const userRequestedSignIn = createAction(
     props<{loginData: LoginData}> ()
 );
 
+export const unauthorizedUserRedirected = createAction(
+    '[AUTH] Unauthorized user redirected',
+    props<{redirectedFrom: string}>()
+);
+
 export const userAuthenticationFailed = createAction(
     '[AUTH] User authentication failed'
 );

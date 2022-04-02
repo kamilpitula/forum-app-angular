@@ -6,13 +6,15 @@ import { Store } from '@ngrx/store';
 import { LocalStorageService } from '../../storage/local-storage.service';
 import { AuthenticatedUser, AuthenticationResult, AuthenticationService, LoginData } from './authentication.service';
 import { userLoggedIn, userLoggedOut } from '../state/auth.actions';
+import { selectSignInResult } from '../state/auth.selectors';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class JwtAuthenticationService implements AuthenticationService {
 
-  constructor(private storage: LocalStorageService, private http: HttpClient, private store: Store) { }
+  constructor(private storage: LocalStorageService, private http: HttpClient, private store: Store, private router: Router) { }
 
   logIn(loginData: LoginData): Observable<boolean> {
     return this.http
@@ -20,6 +22,7 @@ export class JwtAuthenticationService implements AuthenticationService {
       .pipe(
         tap(r => console.log(r)),
         switchMap(r => this.saveData(r)),
+        tap(() => this.store.select(selectSignInResult).subscribe(x => this.router.navigate([x.redirectTo]))),
         catchError(this.handleHttpError),
       );
   }

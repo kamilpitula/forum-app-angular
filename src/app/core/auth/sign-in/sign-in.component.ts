@@ -23,7 +23,7 @@ export class SignInComponent implements OnInit {
 
   ngOnInit() {
     this.store.select(selectSignInResult)
-      .subscribe(result => this.lastAttemptFailed = !result);
+      .subscribe(result => this.lastAttemptFailed = !result.authenticationSucceeded);
   }
 
   onSignIn() {
